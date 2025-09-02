@@ -49,22 +49,30 @@ cat ~/sslkeylog.log
 ตัวอย่างเนื้อหาไฟล์:
 CLIENT_HANDSHAKE_TRAFFIC_SECRET ...
 SERVER_HANDSHAKE_TRAFFIC_SECRET ...
+
+
 2. จับ Traffic ด้วย Wireshark
 เปิด Wireshark
 เลือก interface เครือข่าย (เช่น eth0)
 กด Start
 เรียกดูเว็บไซต์ HTTPS
+
+
 3. โหลด SSLKEYLOGFILE ใน Wireshark
 ไปที่ Edit → Preferences → Protocols → TLS
 ตั้งค่า (Pre)-Master-Secret log filename:
 ~/sslkeylog.log
 คลิก Apply → OK
+
+
 4. กรอง Traffic TLS
 ใช้ filter:
 tls
 http
 เลือกแพ็กเก็ต → คลิกขวา → Follow → TLS Stream
 จะเห็น HTTP request และ response ที่ถอดรหัสแล้ว
+
+
 5. ตัวอย่างผลลัพธ์
 ก่อนถอดรหัส:
 Application Data (Encrypted)
