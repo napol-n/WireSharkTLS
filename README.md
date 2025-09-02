@@ -6,7 +6,28 @@
 
 ## Workflow Diagram
 
-![TLS Decryption Workflow](https://user-images.githubusercontent.com/yourusername/placeholder-tls-diagram.png)
+# Wireshark TLS Decryption Flowchart
+
+```mermaid
+flowchart TD
+    A[Browser เปิดเว็บไซต์ HTTPS] --> B[สร้าง Session Keys สำหรับ TLS]
+    B --> C[บันทึก Keys ลงไฟล์ SSLKEYLOGFILE]
+    A --> D[ส่งข้อมูล HTTPS เข้ารหัสไปยัง Network]
+    D --> E[Wireshark จับแพ็กเก็ตจาก Interface]
+    C --> E
+    E --> F[Wireshark โหลด SSLKEYLOGFILE และถอดรหัส TLS]
+    F --> G[Plaintext Application Data]
+    G --> H[Follow TLS Stream ตรวจสอบ HTTP/JSON/HTML Content]
+
+    style A fill:#f9f,stroke:#333,stroke-width:2px
+    style B fill:#ff9,stroke:#333,stroke-width:2px
+    style C fill:#9f9,stroke:#333,stroke-width:2px
+    style D fill:#9ff,stroke:#333,stroke-width:2px
+    style E fill:#fc9,stroke:#333,stroke-width:2px
+    style F fill:#cff,stroke:#333,stroke-width:2px
+    style G fill:#ffc,stroke:#333,stroke-width:2px
+    style H fill:#9ff,stroke:#333,stroke-width:2px
+
 
 **คำอธิบาย Diagram:**
 
