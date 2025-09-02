@@ -8,8 +8,7 @@
 
 # Wireshark TLS Decryption Flowchart
 
-```mermaid
-flowchart TD
+
     A[Browser เปิดเว็บไซต์ HTTPS] --> B[สร้าง Session Keys สำหรับ TLS]
     B --> C[บันทึก Keys ลงไฟล์ SSLKEYLOGFILE]
     A --> D[ส่งข้อมูล HTTPS เข้ารหัสไปยัง Network]
